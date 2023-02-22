@@ -24,7 +24,20 @@ jobs:
           command: mvn test
       - store_test_results:
           path: target
-
+  sample-task-1:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - run:
+          name: Environment display
+          command: uname
+  sample-task-2:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - run:
+          name: Environment display
+          command: whoami
 
 workflows:
   # Below is the definition of your workflow.
@@ -34,3 +47,9 @@ workflows:
   sample: 
     jobs:
       - build-and-test
+          requires:
+            sample-task-1	
+      - sample-task-1
+      - sample-task-2
+          requires:
+            build-and-test
