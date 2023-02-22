@@ -48,8 +48,8 @@ workflows:
     jobs:
       - build-and-test
           requires:
-            sample-task-1	
+            - sample-task-1	
       - sample-task-1
       - sample-task-2
           requires:
-            build-and-test
+            - build-and-test
