@@ -76,7 +76,7 @@ class PetControllerTests {
 	void testProcessCreationFormSuccess() throws Exception {
 		mockMvc.perform(post("/owners/{ownerId}/pets/new", TEST_OWNER_ID).param("name", "Betty")
 				.param("type", "hamster").param("birthDate", "2015-02-12")).andExpect(status().is3xxRedirection())
-				.andExpect(view().name("redirect:/ownerz/{ownerId}"));
+				.andExpect(view().name("redirect:/owners/{ownerId}"));
 	}
 
 	@Test
