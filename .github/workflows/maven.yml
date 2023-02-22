@@ -26,7 +26,7 @@ jobs:
     - name: Run tests
       run: mvn test 
     - name: Test results uploader to Test-hub.io
-      uses: testhub-io/testhub-io.action@v0.60
+      uses: testhub-io/testhub-io.action@v0.62
       with:
         # Test results file pattern. A glob pattern. Could be path with wildcards like /target/**/TestResults*.xml
         test_result_pattern: target/surefire-reports/*.xml
