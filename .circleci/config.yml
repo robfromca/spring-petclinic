@@ -22,9 +22,12 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test
+          command: |
+            mvn test
+            mkdir -p ~/test-results/junit/
+            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
       - store_test_results:
-          path: target
+          path: ~/test-results
   sample-task-1:
     docker:
       - image: cimg/openjdk:11.0
